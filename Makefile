@@ -1,5 +1,9 @@
-setip:
-	apt-get install -y -qq sl
+$(info running make: scimia/jenkins)
+
+.PHONY: setup all
+
+setup:
+	echo 'make target: setup'
 
 all: setup
-	sl
+	echo 'make target: all'
