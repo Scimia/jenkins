@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 150, unit: 'MINUTES')
     }
     environment {
-        SOBRIQUET = aa234ncmgjcmx216
+        SOBRIQUET = "aa234ncmgjcmx216"
     }
     stages {
         stage('Build') {
