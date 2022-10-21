@@ -8,10 +8,18 @@ pipeline {
         SOBRIQUET = "aa234ncmgjcmx216"
     }
     stages {
+        stage('Setup') {
+            environment {
+                DEBIAN_FRONTEND = "noninteractive"
+            }
+            steps {
+                sh script: "apt-get update -y -qq && apt-get install -y -qq make", label: "Install make"
+            }
+        }
         stage('Build') {
             steps {
-                echo 'hf4thqzhox874m16'
-                sh script: "make", label: "Making make maker."
+                sh script: "make",
+                   label: "run make (all)"
             }
         }
     }
