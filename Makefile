@@ -1,10 +1,16 @@
 $(info running make: scimia/jenkins)
 
-.PHONY: setup all
+.PHONY: build
 
-default: setup
-	echo 'make target: all'
+COLOR ?= 'blue'
+NUMBER ?= 'one'
 
-setup:
-	echo 'make target: setup'
+build:
+	@echo 'make target: build'
+	@echo 'color is $(COLOR)'
+	@echo 'number is $(NUMBER)'
 
+finish:
+	@echo 'make target: finish'
+	@echo 'color is $(COLOR)'
+	@echo 'number is $(NUMBER)'

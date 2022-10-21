@@ -5,7 +5,7 @@ pipeline {
         timeout(time: 150, unit: 'MINUTES')
     }
     environment {
-        SOBRIQUET = "aa234ncmgjcmx216"
+        COLOR = "red"
     }
     stages {
         stage('Setup') {
@@ -16,10 +16,22 @@ pipeline {
                 sh script: "apt-get update -y -qq && apt-get install -y -qq make", label: "Install make"
             }
         }
-        stage('Build') {
+        stage('Build One') {
+            environment {
+                NUMBER = "one"
+            }
             steps {
-                sh script: "make",
-                   label: "run make (all)"
+                sh script: "make build",
+                   label: "run make 'build' target"
+            }
+        }
+        stage('Build Two') {
+            environment {
+                NUMBER = "two"
+            }
+            steps {
+                sh script: "make build",
+                   label: "run make 'build' target"
             }
         }
     }
