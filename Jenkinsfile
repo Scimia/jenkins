@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh script: "uptime", label: "Running 'uptime'"
+                echo 'hf4thqzhox874m16'
+                sh script: "false", label: "ojjrvhya0qu34y16"
             }
         }
     }
