@@ -7,6 +7,9 @@ pipeline {
     environment {
         COLOR = "red"
     }
+    parameters {
+        string(name: 'DEBUG', defaultValue: '', description: 'set to any string for set -x output')
+    }
     stages {
         stage('Setup') {
             environment {
@@ -14,6 +17,7 @@ pipeline {
             }
             steps {
                 sh script: "apt-get update -y -qq && apt-get install -y -qq make", label: "Install make"
+                sh '[ -n ${DEBUG} ] && set -x'
             }
         }
         stage('Build One') {
